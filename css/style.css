@@ -166,8 +166,7 @@ main section {
 }
 .M-horizon {
   position: absolute;
-  bottom: 0;
-  transform: translateY(calc(-100% - 30px));
+  bottom: 120px;
   right: 30px;
 }
 @media screen and (max-width: 900px) {
@@ -182,7 +181,6 @@ main section {
     left: -110px;
   }
   .M-horizon {
-    transform: translateY(calc(-100% - 24px)) scale(0.8);
     right: -20px;
   }
 }
