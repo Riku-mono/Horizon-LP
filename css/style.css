@@ -181,6 +181,7 @@ main section {
     left: -110px;
   }
   .M-horizon {
+    transform: scale(0.8);
     right: -20px;
   }
 }
