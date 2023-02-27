@@ -153,6 +153,7 @@ main section {
 #Home {
   width: 100%;
   height: calc(100vh - 100px);
+  height: calc(100dvh - 100px);
   /* background-image: linear-gradient(90deg, rgba(194, 57, 248, 1), rgba(48, 53, 97, 1)); */
   /* background-image: linear-gradient(90deg, rgba(233, 233, 233, 1), rgba(172, 172, 172, 1)); */
   /* background-image: linear-gradient(90deg, rgba(196, 182, 197, 1), rgba(35, 117, 163, 1)); */
