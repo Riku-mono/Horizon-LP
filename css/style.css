@@ -182,6 +182,7 @@ main section {
   }
   .M-horizon {
     transform: scale(0.8);
+    -webkit-transform: scale(0.8);
     bottom: 105px;
     right: -20px;
   }
