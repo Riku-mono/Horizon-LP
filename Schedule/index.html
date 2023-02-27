@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/sanitize.css">
+    <style>
+        * {
+            font-family: 'Noto Sans JP', "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            user-select: none;
+            list-style: none;
+        }
+        body {
+            width: 100vw;
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .title {
+            text-align: center;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        .title h1 {
+            color: #333;            
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        .title small {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #666;
+        }
+        .content {
+            padding: 2rem 0;
+            margin: 0 2%;
+        }
+        .content p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 0 0 1rem 0;
+            color: #333;
+        }
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            text-align: center;
+            color: #333;
+        }
+        #calender {
+
+        }
+        a.fc-event {
+            color: #fff;
+            background-color :var(--fc-button-bg-color);
+        }
+        .fc-event-time {
+            font-size: 10px;    
+        }
+        .fc-event-title {
+            font-size: 10px;
+        }
+        .fc .fc-toolbar-title {
+            color: #333;
+        }
+        .fc .fc-col-header-cell-cushion {
+            color: #333;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        .fc-daygrid-day-number {
+            color: #333;
+            font-size: 10px;
+        }
+        .fc .fc-timegrid-slot-label-cushion {
+            color: #333;
+            font-size: 10px;
+        }
+        .fc .fc-timegrid-axis-cushion {
+            font-size: 12px;
+        }
+        @media screen and (max-width:767px) { .fc-toolbar.fc-header-toolbar {font-size: 60%}}
+
+        .googleCalendar iframe {
+            width: 100%;
+            height: 400px;  
+        }
+        @media all and (min-width: 768px) {
+            .googleCalendar iframe {
+                height: 600px;
+            }
+        }
+    </style>
+
+    <!-- Calendar -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.4/index.global.min.js'></script>
+    <script>
+		document.addEventListener('DOMContentLoaded', function() {
+		    let calendarEl = document.getElementById('calendar');
+		    let calendar = new FullCalendar.Calendar(calendarEl, {
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,listWeek'
+                },
+		        buttonText: {
+			        today: '今月',
+			        month: '月',
+                    week: '週',
+			        list: 'リスト'
+			    },
+                allDayText: '終日',
+
+
+		        displayEventTime: true,
+                //  実装時にはAPIキーを直接書かないように！！
+                googleCalendarApiKey: 'AIzaSyBHIihwp2MmPo5LpE1e9T7nVA5IB1xrB7Q',
+                events: 'c_c915613dfa31fd5857c548c638368a7adfcfe0da082f05fe569fedef567c2cbe@group.calendar.google.com',
+		        eventClick: function(arg) {
+		          window.open(arg.event.url, 'google-calendar-event', 'width=700,height=600');
+		          arg.jsEvent.preventDefault()
+		        },
+		        locale: 'ja',
+		        contentHeight: 'auto',
+                // 時間を表示
+
+		    });            
+		    calendar.render();
+		});
+    </script>
+</head>
+<body>
+    <section class="container">
+        <div class="title">
+            <h1>Schedule</h1>
+            <small>活動日程</small>
+        </div>
+        <div class="content">
+            <p>通常は週２回、火曜日と金曜日の１７時から対面で活動しています。<br>毎月１回定例会を行い、各班の進行度の共有を行います。</p>
+            <h2>主な年間行事</h2>
+            <ul>
+                <li>
+                    <h2>4月</h2>
+                    <ul>
+                        <li>
+                            <h3>新入生歓迎会</h3>
+                            <ul>
+                                <li>
+                                    <p>
+                                        新入生向けにサークル紹介を行っています<br>
+                                        体験会などのイベントを開催しているのでぜひ参加してください<br>
+                                    </p>
+                                    <a href="">体験会の情報はこちらから</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>11月</h2>
+                    <ul>
+                        <li>
+                            <h3>龍谷祭</h3>
+                            <ul>
+                                <li>
+                                    <p>
+                                        本学学生や地域住民の方々などが参加する学園祭で模擬店の出店やサークル展示などを<br>
+                                        行っています。部外の方に活動知っていただく機会です。
+                                    </p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <div id="calendar"></div>
+            <div class="googleCalendar">
+                <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FTokyo&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showTz=1&showCalendars=1&src=Y19jOTE1NjEzZGZhMzFmZDU4NTdjNTQ4YzYzODM2OGE3YWRmY2ZlMGRhMDgyZjA1ZmU1NjlmZWRlZjU2N2MyY2JlQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%233F51B5&color=%230B8043" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
