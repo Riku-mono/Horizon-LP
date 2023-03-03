@@ -19,6 +19,9 @@ function init() {
 
     setTimeout(() => {
         let scrollTimer;
+        let Target_1_once = false;
+        let Target_2_once = false;
+        let Target_3_once = false;
         window.addEventListener('scroll', function() {
             if(scrollTimer !== null){
                 clearTimeout(scrollTimer);
@@ -26,6 +29,36 @@ function init() {
             scrollTimer = setTimeout(function() {
                 pageTopToggle();
                 saveScrollPosition();
+
+                const Target_1_Element = document.getElementById('Web_team');
+                const Target_2_Element = document.getElementById('Game_team');
+                const Target_3_Element = document.getElementById('ML_team');
+            
+                const Target_1_Position = Target_1_Element.getBoundingClientRect().top;
+                const Target_2_Position = Target_2_Element.getBoundingClientRect().top;
+                const Target_3_Position = Target_3_Element.getBoundingClientRect().top;
+            
+                if (window.innerHeight > Target_1_Position && Target_1_once === false) {
+                    Target_1_once = true;
+                    Target_1_Element.classList.add('show');
+                    setTimeout(() => {
+                        Target_1_Element.classList.remove('show');
+                    }, 5000);
+                }
+                if (window.innerHeight > Target_2_Position && Target_2_once === false) {
+                    Target_2_once = true;
+                    Target_2_Element.classList.add('show');
+                    setTimeout(() => {
+                        Target_2_Element.classList.remove('show');
+                    }, 5000);
+                }
+                if (window.innerHeight > Target_3_Position && Target_3_once === false) {
+                    Target_3_once = true;
+                    Target_3_Element.classList.add('show');
+                    setTimeout(() => {
+                        Target_3_Element.classList.remove('show');
+                    }, 5000);
+                }
             }, 10);
         });
     }, 200);
@@ -33,9 +66,7 @@ function init() {
 
 // ページ読み込み時に実行
 document.addEventListener('DOMContentLoaded', init());
-
-
-
+const body = document.querySelector('body');
 
 
 // ハンバーガーメニュー
@@ -59,3 +90,10 @@ window.addEventListener('resize', function() {
     }, 100);
 });
 
+// フライアウトメニューのリンクをクリックした時にnav-openクラスを削除
+const flyout_link_titles = document.querySelectorAll('.fly-link-title');
+flyout_link_titles.forEach(function(flyout_link_title) {
+    flyout_link_title.addEventListener('click', function() {
+        body.classList.toggle('nav-open');
+    });
+});
