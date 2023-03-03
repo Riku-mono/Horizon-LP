@@ -90,7 +90,7 @@ body {
   /* background-color: rgba(35, 35, 35, 0.8); */
   background-color: rgba(245, 244, 244, 0.8);
   backdrop-filter: blur(5px);
-  --webkit-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   opacity: 1;
 }
 .fly-links {
