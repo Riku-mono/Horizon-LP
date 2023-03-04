@@ -1,0 +1,40 @@
+a.fc-event {
+    color: #fff;
+    background-color :var(--fc-button-bg-color);
+}
+.fc-event-time {
+    font-size: 10px;    
+}
+.fc-event-title {
+    font-size: 10px;
+}
+.fc .fc-toolbar-title {
+    color: #333;
+}
+.fc .fc-col-header-cell-cushion {
+    color: #333;
+    font-size: 10px;
+    font-weight: bold;
+}
+.fc-daygrid-day-number {
+    color: #333;
+    font-size: 10px;
+}
+.fc .fc-timegrid-slot-label-cushion {
+    color: #333;
+    font-size: 10px;
+}
+.fc .fc-timegrid-axis-cushion {
+    font-size: 12px;
+}
+@media screen and (max-width:767px) { .fc-toolbar.fc-header-toolbar {font-size: 60%}}
+
+.googleCalendar iframe {
+    width: 100%;
+    height: 400px;  
+}
+@media all and (min-width: 768px) {
+    .googleCalendar iframe {
+        height: 600px;
+    }
+}

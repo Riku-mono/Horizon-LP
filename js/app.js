@@ -7,29 +7,17 @@ function pageTopToggle() {
     var body = document.querySelector('body');
     body.classList.toggle('pageTop', window.scrollY === 0);
 } 
-
-// 初期化関数
-function init() {
-    pageTopToggle();
-    
-    var scrollPosition = sessionStorage.getItem('scrollPosition');
-    if (scrollPosition !== null) {
-        window.scrollTo(0, parseInt(scrollPosition));
-    }
-
-    setTimeout(() => {
-        let scrollTimer;
-        let Target_1_once = false;
-        let Target_2_once = false;
-        let Target_3_once = false;
+// Elementの表示に合わせたアニメーション
+function scrollAnimation() {
+    let scrollTimer;
+    let Target_1_once = false;
+    let Target_2_once = false;
+    let Target_3_once = false;
         window.addEventListener('scroll', function() {
             if(scrollTimer !== null){
                 clearTimeout(scrollTimer);
             }
             scrollTimer = setTimeout(function() {
-                pageTopToggle();
-                saveScrollPosition();
-
                 const Target_1_Element = document.getElementById('Web_team');
                 const Target_2_Element = document.getElementById('Game_team');
                 const Target_3_Element = document.getElementById('ML_team');
@@ -61,8 +49,32 @@ function init() {
                 }
             }, 10);
         });
+};
+
+// 初期化関数
+function init() {
+    pageTopToggle();
+    
+    var scrollPosition = sessionStorage.getItem('scrollPosition');
+    if (scrollPosition !== null) {
+        window.scrollTo(0, parseInt(scrollPosition));
+    }
+
+    setTimeout(() => {
+        let scrollTimer;
+        scrollAnimation();
+        window.addEventListener('scroll', function() {
+            if(scrollTimer !== null){
+                clearTimeout(scrollTimer);
+            }
+            scrollTimer = setTimeout(function() {
+                pageTopToggle();
+                saveScrollPosition();
+            }, 10);
+        });
     }, 200);
 };
+
 
 // ページ読み込み時に実行
 document.addEventListener('DOMContentLoaded', init());
