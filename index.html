@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/sanitize.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/calendar.css">
 </head>
 <body class="">
     <header class="navbar">
@@ -86,6 +87,7 @@
             <div class="wrapper">
                 <h1 class="title-m">Schedule</h1>
                 <small class="title-s">活動日程</small>
+                <div id="calendar"></div>
             </div>
         </section>
         <section id="Contact">
@@ -98,5 +100,9 @@
     <footer></footer>
 
     <script src="./js/app.js"></script>
+    <!-- Calendar -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.4/index.global.min.js'></script>
+    <script src="./js/calendar.js"></script>
 </body>
 </html>

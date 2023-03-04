@@ -456,6 +456,9 @@ main section {
   width: 100%;
   height: 900px;
 }
+#calendar {
+  margin-top: 50px;
+}
 
 #Contact {
   width: 100%;
