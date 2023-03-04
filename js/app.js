@@ -85,6 +85,20 @@ const body = document.querySelector('body');
 const navButton = document.querySelector('.nav-toggle');
 navButton.addEventListener('click', function() {
     document.body.classList.toggle('nav-open');
+    const main = document.querySelector('main');
+    const footer = document.querySelector('footer');
+    const flyout = document.querySelector('.flyout');
+
+    // inert属性で不活性化する
+    if(document.body.classList.contains('nav-open')){
+        main.inert = true;
+        footer.inert = true;
+        flyout.inert = false;
+    } else {
+        main.inert = false;
+        footer.inert = false;
+        flyout.inert = true;
+    }
 });
 
 // resizeイベントの負荷軽減
