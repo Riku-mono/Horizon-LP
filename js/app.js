@@ -74,68 +74,8 @@ function init() {
     if (scrollPosition !== null) {
         window.scrollTo(0, parseInt(scrollPosition));
     }
-
-    setTimeout(() => {
-        let scrollTimer;
-        scrollAnimation();
-        window.addEventListener('scroll', function() {
-            if(scrollTimer !== null){
-                clearTimeout(scrollTimer);
-            }
-            scrollTimer = setTimeout(function() {
-                pageTopToggle();
-                saveScrollPosition();
-                navAnimation();
-            }, 10);
-        });
-    }, 200);
-};
-
-
-// ページ読み込み時に実行
-document.addEventListener('DOMContentLoaded', init());
-const body = document.querySelector('body');
-
-
-// ハンバーガーメニュー
-const navButton = document.querySelector('.nav-toggle');
-navButton.addEventListener('click', function() {
-    document.body.classList.toggle('nav-open');
-    const main = document.querySelector('main');
-    const footer = document.querySelector('footer');
-    const flyout = document.querySelector('.flyout');
-
-    // inert属性で不活性化する
-    if(document.body.classList.contains('nav-open')){
-        main.inert = true;
-        footer.inert = true;
-        flyout.inert = false;
-    } else {
-        main.inert = false;
-        footer.inert = false;
-        flyout.inert = true;
-    }
-});
-
-// resizeイベントの負荷軽減
-let resizeTimer;
-window.addEventListener('resize', function() {
-    if(resizeTimer !== null){
-        clearTimeout(resizeTimer);
-    }
-
-    resizeTimer = setTimeout(function() {
-        // 画面幅が900px以上の時にnav-openクラスを削除
-        if (window.innerWidth >= 900) {
-            document.body.classList.remove('nav-open');
-        }
-    }, 100);
-});
-
-// フライアウトメニューのリンクをクリックした時にnav-openクラスを削除
-const flyout_link_titles = document.querySelectorAll('.fly-link-title');
-flyout_link_titles.forEach(function(flyout_link_title) {
-    flyout_link_title.addEventListener('click', function() {
-        body.classList.toggle('nav-open');
-    });
-});
+  }
+  setTimeout(() => {
+      // スクロール時にスクロール位置を保存する
+      window.addEventListener('scroll', saveScrollPosition);
+  }, 10);
