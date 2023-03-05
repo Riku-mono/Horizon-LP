@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         displayEventTime: true,
         //  実装時にはAPIキーを直接書かないように！！
-        googleCalendarApiKey: 'AIzaSyBHIihwp2MmPo5LpE1e9T7nVA5IB1xrB7Q',
-        events: 'c_c915613dfa31fd5857c548c638368a7adfcfe0da082f05fe569fedef567c2cbe@group.calendar.google.com',
+        googleCalendarApiKey: '// APIキーを入力',
+        events: '// カレンダーIDを入力',
         eventClick: function(arg) {
           window.open(arg.event.url, 'google-calendar-event', 'width=700,height=600');
           arg.jsEvent.preventDefault()
