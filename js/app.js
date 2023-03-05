@@ -7,7 +7,22 @@ function pageTopToggle() {
     var body = document.querySelector('body');
     body.classList.toggle('pageTop', window.scrollY === 0);
 } 
-// Elementの表示に合わせたアニメーション
+// navbarがスクロールで消え、上にスクロールしたら再度表示する
+let beforeScroll = 0;
+function navAnimation() {
+    let body = document.querySelector('body');
+    let startpoint = document.querySelector('.MV-message').offsetTop;
+    let scroll = window.pageYOffset;
+    if (startpoint > scroll || 0 > scroll - beforeScroll) {
+        body.classList.add('DownMove');
+        body.classList.remove('UpMove');
+    } else {
+        body.classList.add('UpMove');
+        body.classList.remove('DownMove');
+    }
+    beforeScroll = scroll;
+}
+// Elementのアニメーション
 function scrollAnimation() {
     let scrollTimer;
     let Target_1_once = false;
@@ -70,6 +85,7 @@ function init() {
             scrollTimer = setTimeout(function() {
                 pageTopToggle();
                 saveScrollPosition();
+                navAnimation();
             }, 10);
         });
     }, 200);

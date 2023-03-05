@@ -30,27 +30,21 @@ html {
 @keyframes wipe1 {
   0% {
     transform: translateY(100%);
-  }
-  
-  to {
+  } to {
     transform: translateY(0);
   }
 }
 @keyframes hoverFlash {
   0% {
     opacity: .25;
-  }
-
-  to {
+  } to {
     opacity: 1;
   }
 }
 @keyframes hoverScaleUp {
   0% {
     transform: scale(1);
-  }
-
-  to {
+  } to {
     transform: scale(1.05);
   }
 }
@@ -58,9 +52,7 @@ html {
   0% {
     transform: translateX(-100%);
     opacity: 0;
-  }
-
-  to {
+  } to {
     transform: translateX(0);
     opacity: 1;
   }
@@ -69,9 +61,7 @@ html {
   0% {
     transform: translateX(100%);
     opacity: 0;
-  }
-
-  to {
+  } to {
     transform: translateX(0);
     opacity: 1;
   }
@@ -87,18 +77,39 @@ body {
   width: 100%;
   height: 80px;
   background-color: rgba(245, 244, 244, 0.6);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  transition: background ease-in 0.5s, backdrop-filter ease .2s;
+  backdrop-filter: blur(15px) brightness(1.2);
+  -webkit-backdrop-filter: blur(15px) brightness(1.2);
+  transition: background ease .5s, backdrop-filter ease .2s;
   z-index: 1000;
 }
-.nav-open .navbar {
-  background-color: none;
+.nav-open .navbar, .pageTop .navbar {
+  background-color: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
-.pageTop .navbar {
-  background-color: transparent;
+.UpMove .navbar {
+  animation: UpAnimation .5s forwards;
+}
+@keyframes UpAnimation{
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  } to {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+.DownMove .navbar {
+  animation: DownAnimation .5s forwards;
+}
+@keyframes DownAnimation{
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  } to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .navbar-container {
