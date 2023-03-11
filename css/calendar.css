@@ -1,3 +1,6 @@
+.fc .fc-view-harness {
+    overflow: scroll;
+}
 a.fc-event {
     color: #fff;
     background-color :var(--fc-button-bg-color);
