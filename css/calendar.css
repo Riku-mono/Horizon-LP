@@ -1,5 +1,12 @@
-.fc .fc-view-harness {
-    overflow: scroll;
+#calendar {
+    height: calc(100% - 160px);
+    margin-top: 50px;
+}
+.fc .fc-view-harness:has(.fc-timegrid) {
+    overflow-y: scroll;
+}
+#calendar:has(.fc-timegrid) {
+    max-height: 540px;
 }
 a.fc-event {
     color: #fff;

@@ -675,13 +675,6 @@ main section {
   border-radius: 30px;
   border-style: none;
 }
-#calendar {
-  height: calc(100% - 160px);
-  margin-top: 50px;
-}
-#calendar:has(.fc-timegrid) {
-  max-height: 540px;
-}
 
 
 #Contact {
