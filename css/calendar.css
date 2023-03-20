@@ -1,6 +1,7 @@
 #calendar {
     height: calc(100% - 160px);
     margin-top: 50px;
+    font-size: 1.6rem;
 }
 .fc .fc-view-harness:has(.fc-timegrid) {
     overflow-y: scroll;
